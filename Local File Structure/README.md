@@ -1,28 +1,61 @@
-# Pass JWT to Resolver with Context (Server-side)
+# Project 3: Curiosity Cabinet 2.0
 
-In this demo, you will verify if a token is valid and carry
+**Version 2.0**
+## Description:
 
-## Instructions
+An Interactive show-and-tell application that allows contributors to upload an image and then annotate that image with notes pinned to specific parts of the image being described. Viewers can then explore the collection of uploaded images and read all the annotations attached to each image.
 
-* Run `npm install` and `npm run seed` to set up the database.
+## User Story:
 
-* Open [server.js](server/server.js) and explain the following:
+As a user I want to share my object of curiosity or collection of data with others through a user-friendly platform. \
+After logging in as a contributor, I want to easily upload and display an image of my artifact / data collection. \
+I want to easily add notes to specific parts of the image by appending nodes with pop-up comment boxes so I can convey my knowledge or curiosities about specific features of my artifact. \
+I want to be able to edit and update the notes I attached to each item. \
+I want all my artifacts and related annotations to be displayed as an interactive collection that viewers can access by clicking on each artifact and on each related node to display pop-up boxes of my comments.
 
-  * We can add another option to our Apollo Server configuration called `context`, which is a lot like middleware in Express.
+## Original Wireframe and Tables Diagram:
 
-  * This will allow us to intercept any request to the server and check if there's a valid JWT before the request gets to the resolver.
+Gallery View: \
+![Slide 1 containing homepage layout](./README_Files/Slide1.jpeg)
 
-* Open [auth.js](server/utils/auth.js) and explain the `authMiddleware` function:
+Sign Up Page: \
+![Slide 2 containing sign up page layout](./README_Files/Slide2.jpeg)
 
-  * Whenever we make a request to our server, we will check if there's a token with the request and attempt to verify and decode it if there is.
+Annotation Page: \
+![Slide 3 containing upload and annotation page](./README_Files/Slide3.jpeg)
 
-  * We use the `return` statement to return the `req` object, either modified with user data or not modified at all, and the request will continue to go to its intended resolver function.
+Tables Diagram: \
+![Slide 4 containing tables diagram](./README_Files/Slide4.jpg)
 
-* Open [resolvers.js](server/schemas/resolvers.js) and explain the following:
+## Built Utilizing:
 
-  * Any time we need to implement authentication on a query or mutation, we can add a third parameter called `context` to the resolver function.
+Javascript, Node.js, CSS, Handlebars, Multer, MySql, Sequelize, Github, Heroku
 
-  * The `context` object is whatever has been returned from our `authMiddleware` function, so it may or may not include a `user` property depending on the status of the JSON Web Token.
+## Screenshot:
 
-  * If there is a `user` property, we can assume the user's token has been verified and the `user` property now holds data about the user that we stored in the token itself.
+[Link to Screencastify of deployed application](https://watch.screencastify.com/v/tRx9XzGKd2ZjF4Bm6T40)
 
+## Deployed Application:
+
+Not quite ready for primetime.
+
+## Future Development:
+
+Add more error handling \
+Add routes to display different collections/curiosity cabinets \
+Add capacity to link url with image/video and to upload video as artifact \
+Add capacity to upload audio notes in addition to text \
+Add more categories and parameters for user validation beyond authorized contributors and general viewers, such as validation for viewers adding feedback in a separate comments box \
+Add search function by cabinet/collection and by image/artifacts \
+Add capacity for user to embed html for collection and/or image for display in other platforms \
+Allow user to customize wallpaper and shelves for displaying artifacts \
+
+## Contributors:
+
+Robyn Arnecke - <https://github.com/ribbonanarchy>\
+Francis Bond - <https://github.com/francis-bond>\
+Julie Chu - <https://github.com/jehulie>\
+Randy King Jr. - <https://github.com/rkingjr>\
+Steven Schmidt - <https://github.com/StevenSchmidtAusTex>\
+Austin Stoppenhagen - <https://github.com/DEAD-STOP>\
+Erik Svetlik - <https://github.com/eriksvetlik>\
