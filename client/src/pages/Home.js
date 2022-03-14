@@ -23,8 +23,8 @@ const Home = () => {
               collections={collections}
             />
           )}
-           {/* There should be an additional Cubby that invites the user to login and upload  */}
-          { <BlankCubby />}
+          {/* There should be an additional Cubby that invites the user to login and upload  */}
+          {<Cubby />}
         </div>
       </div>
     </main>

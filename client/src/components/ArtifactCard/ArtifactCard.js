@@ -1,33 +1,26 @@
-import classes from './CabinetCard.module.css';
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_ARTIFACT } from '../utils/queries';
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import Button from 'react-bootstrap/Button';
-import Bookcase from '../../public/images/bookcase-single.jpeg';
-import { useParams } from 'react-router';
-import Auth from '../utils/auth';
-
+// import classes from "./CabinetCard.module.css";
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+// import { QUERY_ARTIFACT } from "../../utils/queries";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem";
+import Button from "react-bootstrap/Button";
+// import Bookcase from "../../../public/images/bookcase-single.jpeg";
+// import { useParams } from "react-router";
+import Auth from "../../utils/auth";
 
 const ArtifactCard = () => {
-    // This pulls single artifact via params and query hooks...code is probably not quite right yet!
-    const { imageID } = useParams();
+  // This pulls single artifact via params and query hooks...code is probably not quite right yet!
+  const { imageID } = useParams();
 
-    const { loading, data } = useQuery(
-        {
-            variables: { imageID: imageID }
-        }
-    );
+  const { loading, data } = useQuery({
+    variables: { imageID: imageID },
+  });
 
-    const image = data?.image || {};
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+  const image = data?.image || {};
 
     // Need to add additional condition that userID matches the one attached to the artifact
     if (Auth.loggedIn()) {
@@ -56,6 +49,7 @@ const ArtifactCard = () => {
         )
     }
 
+  if (Auth.loggedIn()) {
     return (
         <Container style={{ backgroundImage: `url(${Bookcase})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             <Card key={image._id}>
@@ -77,4 +71,5 @@ const ArtifactCard = () => {
     )
 }
 
-export default ArtifactCard
+
+export default ArtifactCard;

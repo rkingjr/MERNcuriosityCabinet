@@ -1,31 +1,29 @@
-import classes from './CabinetCard.module.css';
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_COLLECTIONS } from '../utils/queries';
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Bookcase from '../../public/images/bookcase-single.jpeg';
-import { useParams } from 'react-router';
-import Auth from '../utils/auth';
-
+// import classes from "./CabinetCard.module.css";
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+// import { QUERY_COLLECTIONS } from "../../utils/queries";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+// import Bookcase from "../../public/images/bookcase-single.jpeg";
+// import { useParams } from 'react-router';
+import Auth from "../../utils/auth";
 
 const CabinetCard = () => {
-    // This pulls single collection via params and query hooks...code is probably not quite right yet!
-    const { collectionID } = useParams();
+  // This pulls single collection via params and query hooks...code is probably not quite right yet!
+  const { collectionID } = useParams();
 
-    const { loading, data } = useQuery(
-        {
-            variables: { collectionID: collectionID }
-        }
-    );
+  const { loading, data } = useQuery({
+    variables: { collectionID: collectionID },
+  });
 
-    const collection = data?.collections || {};
+  const collections = data?.collections || {};
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
 }
 // Need to add additional condition that userID matches the one attached to the collection
 if (Auth.loggedIn()) {
@@ -72,4 +70,4 @@ return (
 )
 }
 
-export default CabinetCard
+export default CabinetCard;
