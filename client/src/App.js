@@ -15,6 +15,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import backgroundPic from '../public/images/wallpaper.jpeg'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,9 +42,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="flex-column justify-flex-start min-100-vh" 
+        style={{backgroundImage: `url(${backgroundPic})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
           <Header />
-          <div className="container">
+          <main>
             <Routes>
               <Route 
                 path="/" 
@@ -66,7 +68,7 @@ function App() {
                 element={<Artifact />}
               />
             </Routes>
-          </div>
+          </main>
           <Footer />
         </div>
       </Router>
