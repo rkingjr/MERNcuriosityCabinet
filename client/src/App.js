@@ -13,8 +13,8 @@ import Cabinet from './pages/Cabinet';
 import Artifact from './pages/Artifact';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
