@@ -1,19 +1,47 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Profile {
-    _id: ID
-    name: String
-    email: String
-    password: String
-    skills: [String]!
+  type Collections {
+    id: INTEGER
+    title: String
+    description: TEXT
+    comments: INTEGER
+    user: INTEGER
+    image: INTEGER
   }
 
-  type Auth {
-    token: ID!
-    profile: Profile
+  type Comments {
+    id: INTEGER
+    comment1: TEXT
+    comment2: TEXT
+    comment3: TEXT
+    comment4: TEXT
+    comment5: TEXT
+    image_id: INTEGER
   }
 
+  type Image {
+    id: INTEGER
+    title: STRING
+    photographer: STRING
+    image_date: DATE
+    filename: STRING
+    filepath: STRING
+    description: TEXT
+    user_id: INTEGER
+  }
+
+  type User {
+    id: INTEGER
+    name: STRING
+    title: STRING
+    affiliation: STRING
+    email: STRING
+    password: STRING
+  }
+
+
+// Need to update with queries for our project
   type Query {
     profiles: [Profile]!
     profile(profileId: ID!): Profile
@@ -21,6 +49,7 @@ const typeDefs = gql`
     me: Profile
   }
 
+  // Need to update with mutation for our project
   type Mutation {
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
