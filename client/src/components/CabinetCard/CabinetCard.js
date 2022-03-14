@@ -27,23 +27,49 @@ const CabinetCard = () => {
         return <div>Loading...</div>;
     }
 }
-  return (
+// Need to add additional condition that userID matches the one attached to the collection
+if (Auth.loggedIn()) {
+    return (
+        <Container style={{ backgroundImage: `url(${Bookcase})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+            {collections &&
+                collections.map((collection) => (
+                    <Card key={collection._id} >
+                        < Link to={`/artifact/${collection.image._id}`}>
+                            <Card.Img variant="top" src={collection.image.filepath} />
+                            <Card.Body>
+                                <Card.Title>{collection.image.title}</Card.Title>
+                                <Card.Text>
+                                    {collection.image.description}
+                                </Card.Text>
+                                {/* Add code here to direct user to page for editing artifact */}
+                                <Button variant="primary">Edit</Button>
+                            </Card.Body>
+                        </Link>
+                    </Card>
+                ))}
+        </Container>
+    )
+}
+
+
+return (
     <Container style={{ backgroundImage: `url(${Bookcase})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-              {collections &&
-        collections.map((collection) => (
-            <Card>
-            <Card.Img variant="top" src={collection.image.filename} />
-            <Card.Body>
-              <Card.Title>{collection.image.title}</Card.Title>
-              <Card.Text>
-                {collection.image.description}
-              </Card.Text>
-              <Button variant="primary">Edit</Button>
-            </Card.Body>
-            </Card>
-                    ))}
-          </Container>
-  )
+        {collections &&
+            collections.map((collection) => (
+                <Card key={collection._id} >
+                    < Link to={`/artifact/${collection.image._id}`}>
+                        <Card.Img variant="top" src={collection.image.filepath} />
+                        <Card.Body>
+                            <Card.Title>{collection.image.title}</Card.Title>
+                            <Card.Text>
+                                {collection.image.description}
+                            </Card.Text>
+                        </Card.Body>
+                    </Link>
+                </Card>
+            ))}
+    </Container>
+)
 }
 
 export default CabinetCard
