@@ -9,7 +9,8 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Profile from './pages/Profile';
+import Artifact from './pages/Artifact';
+import Cabinet from './pages/Cabinet';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Header from './components/Header';
@@ -57,12 +58,12 @@ function App() {
                 element={<Signup />}
               />
               <Route 
-                path="/me" 
-                element={<Profile />}
+                path="/artifact/:artifactId" 
+                element={<Artifact />}
               />
               <Route 
-                path="/profiles/:profileId"
-                element={<Profile />}
+                path="/cabinet/:cabinetId"
+                element={<Cabinet />}
               />
             </Routes>
           </div>
