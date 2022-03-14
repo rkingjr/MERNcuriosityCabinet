@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import Cubby from '../components/Cubby';
+import Cubby from '../components/Cubby/Cubby';
 import BlankCubby from '../components/BlankCubby';
 
 import { QUERY_CABINETS } from '../utils/queries';
