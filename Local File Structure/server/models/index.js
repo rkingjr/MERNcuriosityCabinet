@@ -1,6 +1,11 @@
 const User = require('./User');
 const Image = require('./Image');
 const Comments = require('./Comments');
+const Collections = require('./Collections');
+
+Collections.hasMany(Image, {
+  foreignKey: 'image_id',
+});
 
 User.hasMany(Image, {
   foreignKey: 'user_id',

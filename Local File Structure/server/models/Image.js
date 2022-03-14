@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataType } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Image extends Model { }
@@ -6,37 +6,37 @@ class Image extends Model { }
 Image.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataType.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataType.STRING,
             allowNull: false,
         },
         photographer: {
-            type: DataTypes.STRING,
+            type: DataType.STRING,
             allowNull: true,
         },
         image_date: {
-            type: DataTypes.DATE,
+            type: DataType.DATE,
             allowNull: true,
         },
         filename: {
-            type: DataTypes.STRING,
+            type: DataType.STRING,
             allowNull: true,
         },
         filepath: {
-            type: DataTypes.STRING,
+            type: DataType.STRING,
             allowNull: true,
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataType.TEXT,
             allowNull: true,
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataType.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
