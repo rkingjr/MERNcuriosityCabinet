@@ -1,5 +1,6 @@
 {
   "name": "tech-friends",
+  "name": "curiosity-cabinet",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -7,6 +8,7 @@
     "start": "node server --ignore client",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
+    "install": "cd server && npm i && cd ../client && npm i --legacy-peer-deps",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },

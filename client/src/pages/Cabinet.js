@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 
 import Cubby from "../components/Cubby/Cubby";
 // import BlankCubby from "../components/BlankCubby";
+import BlankCubby from "../components/BlankCubby/BlankCubby";
 
 import { QUERY_IMAGES } from "../utils/queries";
 
@@ -22,6 +23,7 @@ const Home = () => {
           )}
           {/* There should be an additional Cubby that invites the user to login and upload  */}
           {<Cubby />}
+          {<BlankCubby />}
         </div>
       </div>
     </main>

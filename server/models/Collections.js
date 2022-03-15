@@ -40,6 +40,13 @@ Collections.init(
                 key: 'id',
             },
         },
+        contributor: {
+            type: Datatype.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,

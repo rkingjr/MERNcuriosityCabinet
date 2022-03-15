@@ -46,6 +46,9 @@ function App() {
         style={{backgroundImage: `url(${backgroundPic})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
           <Header />
           <main>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
             <Routes>
               <Route 
                 path="/" 
@@ -69,6 +72,7 @@ function App() {
               />
             </Routes>
           </main>
+          </div>
           <Footer />
         </div>
       </Router>

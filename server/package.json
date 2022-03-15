@@ -7,6 +7,7 @@
     "start": "node server.js",
     "watch": "nodemon",
     "seed": "node seeders/seed.js"
+    "seed": "node seeders/index.js"
   },
   "keywords": [],
   "author": "",

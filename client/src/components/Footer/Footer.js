@@ -16,6 +16,7 @@ const Footer = () => {
           </button>
         )}
         <h4>&copy; {new Date().getFullYear()} - Curiosity Cabinet</h4>
+        <h4>&copy; {new Date().getFullYear()} - Tech Friends</h4>
       </div>
     </footer>
   );
