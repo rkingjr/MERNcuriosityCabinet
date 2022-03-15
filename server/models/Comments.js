@@ -1,50 +1,32 @@
-const { Model, DataType } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Schema, model } = require("mongoose");
 
-class Comments extends Model { }
+const commentsSchema = new Schema({
+  comment1: {
+    type: String,
+    trim: true,
+  },
+  comment2: {
+    type: String,
+    trim: true,
+  },
+  comment3: {
+    type: String,
+    trim: true,
+  },
+  comment4: {
+    type: String,
+    trim: true,
+  },
+  comment5: {
+    type: String,
+    trim: true,
+  },
+  image: {
+    type: Schema.Types.ObjectId,
+    ref: "Image",
+  },
+});
 
-Comments.init(
-    {
-        id: {
-            type: DataType.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        comment1: {
-            type: DataType.TEXT,
-            allowNull: false,
-        },
-        comment2: {
-            type: DataType.TEXT,
-            allowNull: true,
-        },
-        comment3: {
-            type: DataType.TEXT,
-            allowNull: true,
-        },
-        comment4: {
-            type: DataTypes.TEXT,
-            allowNull: true,
-        },
-        comment5: {
-            type: DataTypes.TEXT,
-            allowNull: true,
-        },
-        image_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'image',
-                key: 'id',
-            },
-        },
-    },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'comments',
-    }
-);
+const Comments = model("Comments", commentsSchema);
 
 module.exports = Comments;
