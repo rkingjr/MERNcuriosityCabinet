@@ -1,59 +1,34 @@
-const { Model, Datatype: Datatype } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Schema, model } = require("mongoose");
 
-class Collections extends Model { }
-
-Collections.init(
+const collectionsSchema = new Schema({
+  title: {
+    type: String,
+    trim: true,
+  },
+  description: {
+    type: String,
+    trim: true,
+  },
+  comments: [
     {
-        id: {
-            type: Datatype.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        title: {
-            type: Datatype.STRING,
-            allowNull: true,
-        },
-        description: {
-            type: Datatype.TEXT,
-            allowNull: true,
-        },
-        comments: {
-            type: Datatype.INTEGER,
-            references: {
-                model: 'comments',
-                key: 'id',
-            },
-        },
-        user: {
-            type: Datatype.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
-        image: {
-            type: Datatype.INTEGER,
-            references: {
-                model: 'image',
-                key: 'id',
-            },
-        },
-        contributor: {
-            type: Datatype.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
+      type: Schema.Types.ObjectId,
+      ref: "Comments",
     },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'collections'
-    }
-);
+  ],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  image: {
+    type: Schema.Types.ObjectId,
+    ref: "Image",
+  },
+  contributor: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+});
+
+const Collections = model("Collections", collectionsSchema);
 
 module.exports = Collections;
