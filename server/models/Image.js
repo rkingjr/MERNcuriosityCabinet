@@ -1,54 +1,36 @@
-const { Model, DataType } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Schema, model } = require("mongoose");
 
-class Image extends Model { }
+const imageSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  photographer: {
+    type: String,
+    trim: true,
+  },
+  image_date: {
+    type: String,
+    trim: true,
+  },
+  filename: {
+    type: String,
+    trim: true,
+  },
+  filepath: {
+    type: String,
+  },
+  description: {
+    type: String,
+    trim: true,
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+});
 
-Image.init(
-    {
-        id: {
-            type: DataType.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        title: {
-            type: DataType.STRING,
-            allowNull: false,
-        },
-        photographer: {
-            type: DataType.STRING,
-            allowNull: true,
-        },
-        image_date: {
-            type: DataType.DATE,
-            allowNull: true,
-        },
-        filename: {
-            type: DataType.STRING,
-            allowNull: true,
-        },
-        filepath: {
-            type: DataType.STRING,
-            allowNull: true,
-        },
-        description: {
-            type: DataType.TEXT,
-            allowNull: true,
-        },
-        user_id: {
-            type: DataType.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
-    },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'image',
-    }
-);
+const Image = model("Image", imageSchema);
 
 module.exports = Image;
