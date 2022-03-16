@@ -1,16 +1,22 @@
 [
   {
     "name": "Karl Marx",
+    "email": "marx@techfriends.dev",
+    "password": "password01",
     "title": "Political Economist",
     "affiliation": "School of Hard Knocks"
   },
   {
     "name": "Hannah Arendt",
+    "email": "arendt@techfriends.dev",
+    "password": "password02",
     "title": "Philosopher",
     "affiliation": "Homo Faber Tech"
   },
   {
     "name": "Jacques Lacan",
+    "email": "lacan@techfriends.dev",
+    "password": "password03",
     "title": "Psychoanalyst",
     "affiliation": "University of Lost Objects"
   }
