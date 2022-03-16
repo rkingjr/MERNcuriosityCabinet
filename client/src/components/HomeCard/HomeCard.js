@@ -14,7 +14,7 @@ const HomeCard = ({ images }) => {
       {images &&
         images.map((image, index) => (
           <Card key={index}>
-            <Card.Img variant="top" src={image.filename} />
+            <Card.Img variant="top" src={`/images/${image.filename}`} />
             <Card.Body>
               <Card.Title>{image.title}</Card.Title>
               <Card.Text>{image.description}</Card.Text>
@@ -26,3 +26,5 @@ const HomeCard = ({ images }) => {
 };
 
 export default HomeCard;
+
+//
