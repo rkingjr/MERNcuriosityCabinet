@@ -10,6 +10,7 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from "react-bootstrap/Button";
 import Bookcase from "../../public/images/bookcase-single.jpeg";
 import Auth from "../utils/auth";
+import Annotation from '../Annotation/Annotation'
 
 const ArtifactCard = () => {
   // This pulls single artifact via params and query hooks...code is probably not quite right yet!
@@ -39,11 +40,7 @@ const ArtifactCard = () => {
           <Card.Body>
             <Card.Title>{image.title}</Card.Title>
             <Card.Text>{image.description}</Card.Text>
-            <ListGroup className="list-group-flush">
-              <ListGroupItem>By: {image.user.name}</ListGroupItem>
-              <ListGroupItem> {image.user.title}</ListGroupItem>
-              <ListGroupItem> {image.user.affiliation}</ListGroupItem>
-            </ListGroup>
+            <Annotation />
             {/* There should be a conditional written here for buttons to appear depending on Auth and user activity */}
             <Button variant="primary">Edit</Button>
             <Button variant="primary">Save</Button>
@@ -67,11 +64,7 @@ const ArtifactCard = () => {
         <Card.Body>
           <Card.Title>{image.title}</Card.Title>
           <Card.Text>{image.description}</Card.Text>
-          <ListGroup className="list-group-flush">
-            <ListGroupItem>By: {image.user.name}</ListGroupItem>
-            <ListGroupItem> {image.user.title}</ListGroupItem>
-            <ListGroupItem> {image.user.affiliation}</ListGroupItem>
-          </ListGroup>
+          <Annotation />
         </Card.Body>
       </Card>
       ))
