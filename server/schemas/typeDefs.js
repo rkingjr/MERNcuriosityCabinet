@@ -48,6 +48,9 @@ const typeDefs = gql`
 
   type Query {
     user: [User]!
+    collections: [Collections]!
+    collection: [collectionID: ID!]
+    artifact: [artifactID: ID!]
     images: [Image]!
   }
 
@@ -55,6 +58,8 @@ const typeDefs = gql`
     addImage(title: String!): Image
     login(email: String!, password: String!): Auth
     addUser(name: String!, email: String!, password: String!): Auth
+    removeArtifact: Image
+    removeCollection: Collections
   }
 `;
 
