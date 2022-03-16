@@ -51,6 +51,7 @@ const typeDefs = gql`
 
   // Need to update with mutation for our project
   type Mutation {
+    addImage(title: String!): Image
     addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 

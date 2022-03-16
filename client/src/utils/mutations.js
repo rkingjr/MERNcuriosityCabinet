@@ -1,5 +1,20 @@
 import { gql } from '@apollo/client';
 
+export const ADD_IMAGE = gql`
+mutation addImage($title: String!) {
+  addImage(title: $title) {
+    _id
+    title
+    photographer
+    image_date
+    filename
+    filepath
+    description
+    user_id
+  }
+}
+`;
+
 export const ADD_PROFILE = gql`
   mutation addProfile($name: String!, $email: String!, $password: String!) {
     addProfile(name: $name, email: $email, password: $password) {

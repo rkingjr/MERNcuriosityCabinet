@@ -24,6 +24,9 @@ const resolvers = {
   },
 
   Mutation: {
+    addImage: async (parent, { title, description, file }) => {
+      return Image.create({ title, description, file });
+    },
     addProfile: async (parent, { name, email, password }) => {
       const profile = await Profile.create({ name, email, password });
       const token = signToken(profile);
