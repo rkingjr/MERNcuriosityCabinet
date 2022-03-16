@@ -48,6 +48,7 @@ const typeDefs = gql`
 
   type Query {
     user: [User]!
+    images: [Image]!
   }
 
   type Mutation {
