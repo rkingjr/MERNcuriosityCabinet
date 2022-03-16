@@ -21,6 +21,9 @@ const commentsSchema = new Schema({
     type: String,
     trim: true,
   },
+  image_id: {
+    type: Number,
+  },
   image: {
     type: Schema.Types.ObjectId,
     ref: "Image",
