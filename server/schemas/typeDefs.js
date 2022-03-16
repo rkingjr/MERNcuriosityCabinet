@@ -49,8 +49,6 @@ const typeDefs = gql`
   type Query {
     user: [User]!
     collections: [Collections]!
-    collection: [collectionID: ID!]
-    artifact: [artifactID: ID!]
     images: [Image]!
   }
 
@@ -64,3 +62,6 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+// collection: [collectionID: ID!]
+// artifact: [artifactID: ID!]

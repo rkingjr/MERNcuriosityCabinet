@@ -15,7 +15,7 @@ export const QUERY_COLLECTIONS = gql`
 `;
 
 export const QUERY_COLLECTION = gql`
-  query collection ($collectionId: ID!){
+  query collection($collectionId: ID!) {
     collection(collectionId: $collectionId) {
       _id
       title
@@ -24,8 +24,11 @@ export const QUERY_COLLECTION = gql`
       user
       image
       contributor
-=======
-// export const QUERY_ARTIFACT = gql`
+    }
+  }
+`;
+
+// export const QUERY_ARTIFACT = gql`;
 //   query artifact {
 //     artifact {
 //     }
@@ -57,8 +60,8 @@ export const QUERY_IMAGES = gql`
 `;
 
 export const QUERY_ARTIFACT = gql`
-  query artifact ($artifactId: ID!) {
-    image (artifactId: $artifactId) {
+  query artifact($artifactId: ID!) {
+    image(artifactId: $artifactId) {
       _id
       title
       photographer
