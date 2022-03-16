@@ -7,6 +7,10 @@ const resolvers = {
     collections: async () => {
       return Collections.find();
     },
+    images: async () => {
+      return Image.find();
+    },
+  },
 
     collection: async (parent, { collectionId }) => {
       return Collections.findOne({ _id: collectionId });

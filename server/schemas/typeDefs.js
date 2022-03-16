@@ -51,6 +51,7 @@ const typeDefs = gql`
     collections: [Collections]!
     collection: [collectionID: ID!]
     artifact: [artifactID: ID!]
+    images: [Image]!
   }
 
   type Mutation {
