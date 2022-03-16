@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { useMutation } from '@apollo/client';
-import { ADD_PROFILE } from '../utils/mutations';
-
-import Auth from '../utils/auth';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
   });
-  const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -30,11 +29,11 @@ const Signup = () => {
     console.log(formState);
 
     try {
-      const { data } = await addProfile({
+      const { data } = await addUser({
         variables: { ...formState },
       });
 
-      Auth.login(data.addProfile.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -48,14 +47,14 @@ const Signup = () => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You may now head{" "}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="name"
                   name="name"
                   type="text"
                   value={formState.name}
@@ -63,7 +62,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="Your email"
+                  placeholder="email"
                   name="email"
                   type="email"
                   value={formState.email}
@@ -79,7 +78,7 @@ const Signup = () => {
                 />
                 <button
                   className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   type="submit"
                 >
                   Submit
