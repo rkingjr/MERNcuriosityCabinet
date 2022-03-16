@@ -1,12 +1,10 @@
-const { Image } = require('../models');
-
-const imagedata = [
+[
   {
-    title: 'Matryoshka Designs',
-    // photographer:'', 
-    // image_date: '',
+    "title": "Matryoshka Designs",
+    "photographer":"",
+    "image_date":"",
     filename: 'maytryosha-web.jpeg',
-    // image_date: 
+    // image_date:
     filename: 'matroyshka-web.jpeg',
     description:
       'A key design model for logistical work',
@@ -49,7 +47,3 @@ const imagedata = [
     user_id: 3,
   },
 ];
-
-const seedImage = () => Image.bulkCreate(imagedata);
-
-module.exports = seedImage;

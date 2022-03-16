@@ -1,18 +1,27 @@
-const sequelize = require('../config/connection');
-const seedUser = require('./userData');
-const seedImage = require('./imageData');
-const seedComments = require('./commentsData');
+const db = require('../config/connection');
+const { Collections } = require('../models/Collections');
+const { Comments } = require('../models/Comments');
+const { Image } = require('../models/Image');
+const { User } = require('../models/User');
+const seedCollections = require('./collectionsData.json')
+const seedUser = require('./userData.json');
+const seedImage = require('./imageData.json');
+const seedComments = require('./commentsData.json');
 
-const seedAll = async () => {
-  await sequelize.sync({ force: true });
+db.once('open', async () => {
+  try {
+    await Collections.deleteMany({});
+    await Collections.create(seedCollections);
+    await Comments.deleteMany({});
+    await Comments.create(seedComments);
+    await Image.deleteMany({});
+    await Image.create(seedImage);
+    await User.deleteMany({});
+    await User.create(seedUser);
 
-  await seedUser();
-
-  await seedImage();
-
-  await seedComments();
-
-  process.exit(0);
-};
-
-seedAll();
+    console.log('all done!');
+    process.exit(0);
+  } catch (err) {
+    throw err;
+  }
+});

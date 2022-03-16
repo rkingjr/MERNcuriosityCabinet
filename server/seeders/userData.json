@@ -1,6 +1,4 @@
-const { User } = require('../models');
-
-const userdata = [
+[
   {
     name: 'Karl Marx',
     title: 'Political Economist',
@@ -17,7 +15,3 @@ const userdata = [
     affiliation: 'University of Lost Objects',
   },
 ];
-
-const seedUser = () => User.bulkCreate(userdata);
-
-module.exports = seedUser;
