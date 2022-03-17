@@ -5,6 +5,7 @@ import HomeCard from "../components/HomeCard/HomeCard";
 import BlankCubby from "../components/BlankCubby/BlankCubby";
 
 import { QUERY_IMAGES } from "../utils/queries";
+import Auth from "../utils/auth";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_IMAGES);
@@ -21,7 +22,7 @@ const Home = () => {
             <HomeCard images={images} />
           )}
           {/* There should be an additional Cubby that invites the user to login and upload  */}
-          {<BlankCubby />}
+          {Auth.loggedIn() ? <></> : <>{<BlankCubby />}</>}
         </div>
       </div>
     </main>
