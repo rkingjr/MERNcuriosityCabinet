@@ -1,0 +1,31 @@
+:root {
+    --primary: #3d5852;
+    --secondary: #86938f;
+    --tertiary: #5e877f;
+    --quatrinary: #6c6b67;
+    --light: #e3e4e3;
+    --dark: #182c23;
+    --error: rgb(228, 46, 1);
+    --lightwood: #B48D51;
+    --blondewood: #FFDDA1;
+    --walnut: #5A3300;
+    --darkwood: #321414;
+    --ebony: #140000;
+  
+    --border-radius: 0.3rem;
+  }
+
+.header {
+    padding: 20px;
+    text-align: center;
+    background: var(--blondewood);
+    color: var(--darkwood);
+  }
+
+.banner {
+    background-image: url("../Assets/header.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:60vw;
+    height: 200px;   
+}

@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import classes from './BlankCubby.module.css';
 
 import Auth from "../../utils/auth";
 
 const BlankCubby = () => {
   return (
     <main>
+       <div className={classes.cubby} >
       <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3 text-center">
+      <Card className={classes.card}>
           {Auth.loggedIn() ? (
             <></>
           ) : (
@@ -23,7 +26,8 @@ const BlankCubby = () => {
               </Link>
             </>
           )}
-        </div>
+        </Card>
+      </div>
       </div>
     </main>
   );
