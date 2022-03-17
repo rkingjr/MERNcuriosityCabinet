@@ -50,6 +50,7 @@ const typeDefs = gql`
     user: [User]!
     collections: [Collections]!
     images: [Image]!
+    image(imageID: ID!): Image
   }
 
   type Mutation {
