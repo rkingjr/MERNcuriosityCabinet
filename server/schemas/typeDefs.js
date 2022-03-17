@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Collections {
-    id: Int
+    _id: ID
     title: String
     description: String
     comments: Int
@@ -11,7 +11,7 @@ const typeDefs = gql`
   }
 
   type Comments {
-    id: Int
+    _id: ID
     comment1: String
     comment2: String
     comment3: String
