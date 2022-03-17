@@ -21,7 +21,7 @@ const typeDefs = gql`
   }
 
   type Image {
-    id: Int
+    _id: ID
     title: String
     photographer: String
     image_date: String

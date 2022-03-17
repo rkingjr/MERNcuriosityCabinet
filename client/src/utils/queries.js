@@ -52,6 +52,7 @@ export const QUERY_COLLECTION = gql`
 export const QUERY_IMAGES = gql`
   query allImages {
     images {
+      _id
       title
       filename
       description
