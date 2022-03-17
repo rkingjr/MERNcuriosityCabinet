@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 // import Cabinet from './pages/Cabinet';
-// import Artifact from './pages/Artifact';
+import Artifact from './pages/Artifact';
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header/Header";
@@ -53,8 +53,8 @@ function App() {
                 // element={<Cabinet />}
               />
               <Route
-                path="/artifact/:artifactId"
-                // element={<Artifact />}
+                path="/artifact"
+                element={<Artifact />}
               />
             </Routes>
           </div>
