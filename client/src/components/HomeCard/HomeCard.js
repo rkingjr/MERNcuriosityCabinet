@@ -21,7 +21,7 @@ const HomeCard = ({ images }) => {
             <Row xs={12} md={6}>
               <Col>
                 <Card className={classes.card}>
-                  <Link className="text-dark" to={`/cabinet/${image._id}`}>
+                  <Link className="text-dark" to={`/artifact/${image._id}`}>
                     <img
                       className={classes.img}
                       variant="top"
