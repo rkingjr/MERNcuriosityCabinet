@@ -14,7 +14,12 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-center">
-        <div className="col-6">
+        <div className="col-6" style={{
+        display: "flex",
+        flexFlow: "column wrap",
+        alignContent: "flex-start",
+        alignItems: "center",
+      }}>
           {loading ? (
             <div>Loading...</div>
           ) : (

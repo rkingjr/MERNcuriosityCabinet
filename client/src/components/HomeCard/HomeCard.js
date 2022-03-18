@@ -10,9 +10,10 @@ const HomeCard = ({ images }) => {
   return (
     <Container
       style={{
-        justifyContent: "center",
-        marginLeft: "auto",
-        marginRight: "auto",
+        display: "flex",
+        flexFlow: "column wrap",
+        alignContent: "flex-start",
+        alignItems: "center",
       }}
     >
       {images &&
