@@ -30,9 +30,7 @@ body {
  * Render the `main` element consistently in IE.
  */
  main {
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
+  display: block;
 }
 
 /**
