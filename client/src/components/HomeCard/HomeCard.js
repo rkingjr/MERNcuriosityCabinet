@@ -12,8 +12,8 @@ const HomeCard = ({ images }) => {
       style={{
         display: "flex",
         flexFlow: "column wrap",
-        alignContent: "flex-start";
-        alignItems: "center";
+        alignContent: "flex-start",
+        alignItems: "center",
       }}
     >
       {images &&
