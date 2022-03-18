@@ -29,8 +29,10 @@ body {
 /**
  * Render the `main` element consistently in IE.
  */
-main {
-  display: block;
+ main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 /**
@@ -342,7 +344,7 @@ template {
   display: none;
 }
 
-/* 
+/*
 =================
 END NORMALIZE CSS
 =================
