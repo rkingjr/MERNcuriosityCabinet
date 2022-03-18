@@ -11,7 +11,7 @@
     --walnut: #5A3300;
     --darkwood: #321414;
     --ebony: #140000;
-  
+
     --border-radius: 0.3rem;
   }
 
@@ -33,6 +33,7 @@
   }
 
 .card {
+    width: 80%;
     margin: 10px;
     z-index: 2;
     background-color: var(--blondewood);
