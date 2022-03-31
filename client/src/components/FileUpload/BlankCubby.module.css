@@ -1,0 +1,23 @@
+.cubby {
+    padding: 40px;
+    /* flex: 0 1 300px; */
+    z-index: 1;
+    background-image: url("../Assets/bookcase-single.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    margin-top: -10px;
+    margin-right: -15px;
+  }
+
+  .card {
+    margin: 10px;
+    z-index: 2;
+    background-color: var(--blondewood);
+    width: 410px;
+    height: 360px;
+    padding: 0.625rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-style: normal;
+}

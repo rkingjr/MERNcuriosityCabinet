@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 
 import HomeCard from "../components/HomeCard/HomeCard";
 import BlankCubby from "../components/BlankCubby/BlankCubby";
+import FileUpload from "../components/FileUpload/FileUpload";
 
 import { QUERY_IMAGES } from "../utils/queries";
 
@@ -20,6 +21,7 @@ const Home = () => {
             // This should map the array of the component, Cubby, with data from the cabinetsData representing exising collections in the db
             <HomeCard images={images} />
           )}
+          {<FileUpload/>}
           {/* There should be an additional Cubby that invites the user to login and upload  */}
           {<BlankCubby />}
         </div>
