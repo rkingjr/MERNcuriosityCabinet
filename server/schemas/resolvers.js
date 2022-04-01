@@ -24,9 +24,6 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addImage: async (parent, { title, description, file }) => {
-      return Image.create({ title, description, file });
-    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
