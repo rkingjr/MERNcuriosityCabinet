@@ -10,12 +10,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 // import Cabinet from './pages/Cabinet';
-// import Artifact from './pages/Artifact';
+import Artifact from "./pages/Artifact";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Wallpaper from "./components/Assets/wallpaper.jpeg";
+import Wallpaper from "./components/Assets/wallpaper-light.jpg";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,26 +42,23 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <div style={{ backgroundImage: `url(${Wallpaper})`}}>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route
-                path="/cabinet/:cabinetID"
-                // element={<Cabinet />}
-              />
-              <Route
-                path="/artifact/:artifactId"
-                // element={<Artifact />}
-              />
-            </Routes>
+        <div style={{ backgroundImage: `url(${Wallpaper})` }}>
+          <div className="flex-column justify-flex-start min-100-vh">
+            <Header />
+            <div className="container">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route
+                  path="/cabinet/:cabinetID"
+                  // element={<Cabinet />}
+                />
+                <Route path="/artifact/:imageID" element={<Artifact />} />
+              </Routes>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
         </div>
       </Router>
     </ApolloProvider>

@@ -1,29 +1,35 @@
-import { useEffect, useRef, useState } from 'react';
-import { Annotorious } from '@recogito/annotorious';
-
-import '@recogito/annotorious/dist/annotorious.min.css';
-
-const image = {
-  filename: 'https://cdn.shopify.com/s/files/1/0057/3728/3618/products/bd4a8f5f1ec47d775c51bd66793d21d2_247ae880-13f4-4400-a0fc-5c8de676d861_480x.progressive.jpg?v=1573585478',
-  title: 'Nacho Poster',
-  description: 'Nacho and Eskeleto sit and stand side by side.',
-  user: {
-    name: 'Robyn',
-    title: 'professional',
-    affiliation: 'UT'
-  }
-}
+import { useEffect, useRef, useState } from "react";
+import { Annotorious } from "@recogito/annotorious";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_ARTIFACT } from "../../utils/queries";
+import "@recogito/annotorious/dist/annotorious.min.css";
+import React from "react";
 
 function Annotation() {
+  // This pulls single artifact via params and query hooks...code is probably not quite right yet!
+  const { imageID } = useParams();
+  const { data } = useQuery(QUERY_ARTIFACT, {
+    // pass URL parameter
+    variables: { imageID: imageID },
+  });
+  const imageData = data?.image || {};
+  console.log(imageData);
+
+  const image = {
+    filename: `/images/${imageData.filename}`,
+    title: `${imageData.title}`,
+    description: `${imageData.description}`,
+  };
 
   // Ref to the image DOM element
   const imgEl = useRef();
 
   // The current Annotorious instance
-  const [ anno, setAnno ] = useState();
+  const [anno, setAnno] = useState();
 
   // Current drawing tool name
-  const [ tool, setTool ] = useState('rect');
+  const [tool, setTool] = useState("rect");
 
   // Init Annotorious when the component
   // mounts, and keep the current 'anno'
@@ -34,20 +40,20 @@ function Annotation() {
     if (imgEl.current) {
       // Init
       annotorious = new Annotorious({
-        image: imgEl.current
+        image: imgEl.current,
       });
 
       // Attach event handlers here
-      annotorious.on('createAnnotation', annotation => {
-        console.log('created', annotation);
+      annotorious.on("createAnnotation", (annotation) => {
+        console.log("created", annotation);
       });
 
-      annotorious.on('updateAnnotation', (annotation, previous) => {
-        console.log('updated', annotation, previous);
+      annotorious.on("updateAnnotation", (annotation, previous) => {
+        console.log("updated", annotation, previous);
       });
 
-      annotorious.on('deleteAnnotation', annotation => {
-        console.log('deleted', annotation);
+      annotorious.on("deleteAnnotation", (annotation) => {
+        console.log("deleted", annotation);
       });
     }
 
@@ -60,28 +66,24 @@ function Annotation() {
 
   // Toggles current tool + button label
   const toggleTool = () => {
-    if (tool === 'rect') {
-      setTool('polygon');
-      anno.setDrawingTool('polygon');
+    if (tool === "rect") {
+      setTool("polygon");
+      anno.setDrawingTool("polygon");
     } else {
-      setTool('rect');
-      anno.setDrawingTool('rect');
+      setTool("rect");
+      anno.setDrawingTool("rect");
     }
-  }
+  };
 
   return (
     <div>
       <div>
-        <button
-          onClick={toggleTool}>
-            { tool === 'rect' ? 'RECTANGLE' : 'POLYGON' }
+        <button onClick={toggleTool}>
+          {tool === "rect" ? "RECTANGLE" : "POLYGON"}
         </button>
       </div>
 
-      <img 
-        ref={imgEl} 
-        src={image.filename} 
-        alt="Nacho Libre" />
+      <img ref={imgEl} src={image.filename} alt="Nacho Libre" />
     </div>
   );
 }

@@ -13,9 +13,9 @@ const resolvers = {
     // collection: async (parent, { collectionId }) => {
     //   return Collections.findOne({ _id: collectionId });
     // },
-    // artifact: async (parent, { artifactId }) => {
-    //   return Image.findOne({ _id: artifactId });
-    // },
+    image: async (parent, { imageID }) => {
+      return Image.findOne({ _id: imageID });
+    },
   },
 
   Mutation: {

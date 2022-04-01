@@ -42,16 +42,10 @@ export const QUERY_COLLECTION = gql`
 //   }
 // `;
 
-// export const QUERY_IMAGE = gql`
-//   query images {
-//     image {
-//     }
-//   }
-// `;
-
 export const QUERY_IMAGES = gql`
   query allImages {
     images {
+      _id
       title
       filename
       description
@@ -60,16 +54,14 @@ export const QUERY_IMAGES = gql`
 `;
 
 export const QUERY_ARTIFACT = gql`
-  query artifact($artifactId: ID!) {
-    image(artifactId: $artifactId) {
+  query getArtifact($imageID: ID!) {
+    image(imageID: $imageID) {
       _id
       title
       photographer
       image_date
       filename
-      filepath
       description
-      user
     }
   }
 `;

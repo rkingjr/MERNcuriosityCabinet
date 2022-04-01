@@ -29,7 +29,7 @@ body {
 /**
  * Render the `main` element consistently in IE.
  */
-main {
+ main {
   display: block;
 }
 
@@ -342,7 +342,7 @@ template {
   display: none;
 }
 
-/* 
+/*
 =================
 END NORMALIZE CSS
 =================

@@ -6,6 +6,7 @@ import BlankCubby from "../components/BlankCubby/BlankCubby";
 import FileUpload from "../components/FileUpload/FileUpload";
 
 import { QUERY_IMAGES } from "../utils/queries";
+import Auth from "../utils/auth";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_IMAGES);
@@ -14,7 +15,12 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-center">
-        <div className="col-6">
+        <div className="col-6" style={{
+        display: "flex",
+        flexFlow: "column wrap",
+        alignContent: "flex-start",
+        alignItems: "center",
+      }}>
           {loading ? (
             <div>Loading...</div>
           ) : (
@@ -23,7 +29,7 @@ const Home = () => {
           )}
           {<FileUpload/>}
           {/* There should be an additional Cubby that invites the user to login and upload  */}
-          {<BlankCubby />}
+          {Auth.loggedIn() ? <></> : <>{<BlankCubby />}</>}
         </div>
       </div>
     </main>
