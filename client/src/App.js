@@ -9,8 +9,10 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Collections from "./pages/Collections";
 // import Cabinet from './pages/Cabinet';
 import Artifact from "./pages/Artifact";
+import AddCollection from "./pages/AddCollection";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header/Header";
@@ -49,10 +51,15 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/addcollection" element={<AddCollection />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route
                   path="/cabinet/:cabinetID"
                   // element={<Cabinet />}
+                />
+                <Route
+                  path="/collection/:collectionID"
+                  element={<Collections />}
                 />
                 <Route path="/artifact/:imageID" element={<Artifact />} />
               </Routes>

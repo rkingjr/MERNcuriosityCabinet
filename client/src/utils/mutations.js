@@ -50,22 +50,46 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const ADD_COLLECTION = gql`
+  mutation addCollection($title: String!, $description: String!) {
+    addCollection(title: $title, description: $description) {
+      _id
+      title
+      description
+      user
+      images {
+        title
+        photographer
+        image_date
+        filename
+        filepath
+        description
+      }
+    }
+  }
+`;
+
 export const REMOVE_COLLECTION = gql`
-  mutation removeCollection ($collectionId: ID!) {
+  mutation removeCollection($collectionId: ID!) {
     removeCollection(collectionId: $collectionId) {
       _id
       title
       description
-      comments
       user
-      image
-      contributor
+      images {
+        title
+        photographer
+        image_date
+        filename
+        filepath
+        description
+      }
     }
-}
+  }
 `;
 
 export const REMOVE_ARTIFACT = gql`
-  mutation removeCollection ($artifactId: ID!) {
+  mutation removeCollection($artifactId: ID!) {
     removeCollection(artifactId: $artifactId) {
       _id
       title
@@ -76,5 +100,5 @@ export const REMOVE_ARTIFACT = gql`
       description
       user
     }
-}
+  }
 `;

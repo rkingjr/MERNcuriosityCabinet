@@ -19,10 +19,12 @@ const collectionsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  image: {
-    type: Schema.Types.ObjectId,
-    ref: "Image",
-  },
+  images: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Image",
+    },
+  ],
   contributor: {
     type: Schema.Types.ObjectId,
     ref: "User",

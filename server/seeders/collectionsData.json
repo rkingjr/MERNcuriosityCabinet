@@ -1,5 +1,35 @@
 [
-    {
-
-    }
+  {
+    "title": "Collection 1",
+    "description": "description",
+    "images": [
+      {
+        "_id": "6241f73b4d9937999110c633"
+      },
+      {
+        "_id": "6241f73b4d9937999110c634"
+      },
+      {
+        "_id": "6241f73b4d9937999110c635"
+      }
+    ]
+  },
+  {
+    "title": "Collection 2",
+    "description": "description",
+    "images": [
+      {
+        "_id": "6241f73b4d9937999110c635"
+      }
+    ]
+  },
+  {
+    "title": "Collection 2",
+    "description": "description",
+    "images": [
+      {
+        "_id": "6241f73b4d9937999110c636"
+      }
+    ]
+  }
 ]

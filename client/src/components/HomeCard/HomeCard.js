@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import React from "react";
 
-const HomeCard = ({ images }) => {
+const HomeCard = ({ collections }) => {
   return (
     <Container
       style={{
@@ -15,21 +15,35 @@ const HomeCard = ({ images }) => {
         marginRight: "auto",
       }}
     >
-      {images &&
-        images.map((image) => (
-          <div className={classes.cubby} key={image._id}>
+      {collections &&
+        collections.map((collection) => (
+          <div className={classes.cubby} key={collection._id}>
             <Row xs={12} md={6}>
               <Col>
                 <Card className={classes.card}>
-                  <Link className="text-dark" to={`/artifact/${image._id}`}>
-                    <img
-                      className={classes.img}
-                      variant="top"
-                      src={`/images/${image.filename}`}
-                      alt="cardImage"
-                    />
-                    <h4 className={classes.cardheader}>{image.title}</h4>
-                    {/* <Card.Text>{image.description}</Card.Text> */}
+                  <Link
+                    className="text-dark"
+                    to={`/collection/${collection._id}`}
+                  >
+                    {collection.images.length > 0 ? (
+                      <>
+                        <img
+                          className={classes.img}
+                          variant="top"
+                          src={`/images/${collection.images[0].filename}`}
+                          alt="cardImage"
+                        />
+                      </>
+                    ) : (
+                      <img
+                        className={classes.img}
+                        variant="top"
+                        src="/images/bookcase-single.jpeg"
+                        alt="cardImage"
+                      />
+                    )}
+                    <h4 className={classes.cardheader}>{collection.title}</h4>
+                    <Card.Text>{collection.description}</Card.Text>
                   </Link>
                 </Card>
               </Col>

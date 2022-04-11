@@ -33,6 +33,12 @@ const userSchema = new Schema({
       ref: "Image",
     },
   ],
+  collections: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Collections",
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {
