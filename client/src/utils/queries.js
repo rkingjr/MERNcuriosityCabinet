@@ -6,24 +6,25 @@ export const QUERY_COLLECTIONS = gql`
       _id
       title
       description
-      comments
-      user
-      image
-      contributor
+      images {
+        filename
+      }
     }
   }
 `;
 
 export const QUERY_COLLECTION = gql`
-  query collection($collectionId: ID!) {
-    collection(collectionId: $collectionId) {
+  query collection($collectionID: ID!) {
+    collection(collectionID: $collectionID) {
       _id
       title
       description
-      comments
-      user
-      image
-      contributor
+      images {
+        _id
+        title
+        description
+        filename
+      }
     }
   }
 `;

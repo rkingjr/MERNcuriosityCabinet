@@ -7,7 +7,7 @@ const typeDefs = gql`
     description: String
     comments: Int
     user: Int
-    image: Int
+    images: [Image]
   }
 
   type Comments {
@@ -49,20 +49,21 @@ const typeDefs = gql`
   type Query {
     user: [User]!
     collections: [Collections]!
+    collection(collectionID: ID!): Collections
     images: [Image]!
     image(imageID: ID!): Image
   }
 
   type Mutation {
-    addImage(title: String!): Image
     login(email: String!, password: String!): Auth
     addUser(name: String!, email: String!, password: String!): Auth
-    removeArtifact: Image
-    removeCollection: Collections
+    addCollection(title: String!, description: String!): Collections
+    removeCollection(collectionId: ID!): Collections
   }
 `;
 
 module.exports = typeDefs;
 
-// collection: [collectionID: ID!]
+// removeArtifact: Image
 // artifact: [artifactID: ID!]
+// addImage(title: String!): Image

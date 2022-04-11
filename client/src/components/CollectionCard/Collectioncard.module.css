@@ -1,0 +1,58 @@
+:root {
+    --primary: #3d5852;
+    --secondary: #86938f;
+    --tertiary: #5e877f;
+    --quatrinary: #6c6b67;
+    --light: #e3e4e3;
+    --dark: #182c23;
+    --error: rgb(228, 46, 1);
+    --lightwood: #B48D51;
+    --blondewood: #FFDDA1;
+    --walnut: #5A3300;
+    --darkwood: #321414;
+    --ebony: #140000;
+  
+    --border-radius: 0.3rem;
+  }
+
+.img {
+    width: 410px;
+    height: 360px;
+  }
+
+.cubby {
+    padding: 20px;
+    /* flex: 0 1 300px; */
+    z-index: 1;
+    background-image: url("../Assets/bookcase-single.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    margin-top: -10px;
+    margin-right: -15px;
+  }
+
+.card {
+    margin: 10px;
+    z-index: 2;
+    background-color: var(--blondewood);
+}
+
+.cardheader {
+    color: var(--darkwood);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    background-color: var(--blondewood);
+    padding: 0.625rem;
+  }
+
+.card-body {
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  h4 {
+    font-family: 'Merriweather', serif;
+  }
