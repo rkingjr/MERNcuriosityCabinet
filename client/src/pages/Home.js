@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import classes from "../components/HomeCard/Homecard.module.css";
 import HomeCard from "../components/HomeCard/HomeCard";
 import BlankCubby from "../components/BlankCubby/BlankCubby";
+import FileUpload from "../components/FileUpload/FileUpload";
 
 import { QUERY_COLLECTIONS } from "../utils/queries";
 import Auth from "../utils/auth";
@@ -16,7 +17,12 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-center">
-        <div className="col-6">
+        <div className="col-6" style={{
+        display: "flex",
+        flexFlow: "column wrap",
+        alignContent: "flex-start",
+        alignItems: "center",
+      }}>
           {loading ? (
             <Card className={classes.card}>
               <h4 className={classes.cardheader}>Loading collections...</h4>
@@ -25,6 +31,7 @@ const Home = () => {
             // This should map the array of the component, Cubby, with data from the cabinetsData representing exising collections in the db
             <HomeCard collections={collections} />
           )}
+          {<FileUpload/>}
           {/* There should be an additional Cubby that invites the user to login and upload  */}
           {Auth.loggedIn() ? <></> : <>{<BlankCubby />}</>}
         </div>
